@@ -14,7 +14,7 @@ public class TitleManager : MonoBehaviour
     public Vector2 scrollSpeed;
     [SerializeField] GameObject playButton, optionButton;
 
-    [SerializeField] Animator playAnim, OptionAnim;
+    //[SerializeField] Animator playAnim, OptionAnim;
 
     public void PlayGame()
     {
@@ -87,18 +87,18 @@ public class TitleManager : MonoBehaviour
 
     private void hoverOnPlay()
     {
-        playAnim.SetTrigger("PlayShake");
+        //playAnim.SetTrigger("PlayShake");
     }
     private void hoverOffPlay()
     {
-        playAnim.SetTrigger("PlayStop");
+        //playAnim.SetTrigger("PlayStop");
     }
     private void hoverOnOptions()
     {
-        OptionAnim.SetTrigger("OptionShake");
+        //OptionAnim.SetTrigger("OptionShake");
     }
     private void hoverOffOptions()
     {
-        OptionAnim.SetTrigger("OptionStop");
+        //OptionAnim.SetTrigger("OptionStop");
     }
 }
