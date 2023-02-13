@@ -9,20 +9,23 @@ public class Placeable : MonoBehaviour
     [SerializeField] private float draggingScale;
     [SerializeField] private float dragBox;
 
+    private Grid grid;
+    private PlaceableManager placeableManager;
+
     private Vector2 defaultPosition;
 
     public bool IsDragging { get; private set; } = false;
     private Vector2 dragOffset = Vector2.zero;
 
-    private Grid grid;
     public bool IsPlaced { get; private set; } = false;
     public Vector2Int? CellPosition { get; private set; } = null;
 
     private void Awake()
     {
-        defaultPosition = transform.position;
-
         grid = FindObjectOfType<Grid>();
+        placeableManager = FindObjectOfType<PlaceableManager>();
+
+        defaultPosition = transform.position;
     }
 
     private void Update()
