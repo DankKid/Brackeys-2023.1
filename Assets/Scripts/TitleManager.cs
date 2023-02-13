@@ -8,7 +8,7 @@ using CodeMonkey.Utils;
 
 public class TitleManager : MonoBehaviour
 {
-    [SerializeField] Animator anim;
+    //[SerializeField] Animator anim;
     [SerializeField] Slider slider;
     [SerializeField] AudioMixer audioMixer;
     public Vector2 scrollSpeed;
@@ -24,7 +24,7 @@ public class TitleManager : MonoBehaviour
     bool optionsIsOpened = false;
 
 
-
+    /*
     public void Options()
     {
         if (optionsIsOpened)
@@ -41,7 +41,7 @@ public class TitleManager : MonoBehaviour
     {
         anim.SetTrigger("CloseOP");
     }
-
+    */
     public void QuitGame()
     {
         Application.Quit();
