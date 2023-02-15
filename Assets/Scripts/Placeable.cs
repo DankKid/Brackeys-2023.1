@@ -8,6 +8,8 @@ public class Placeable : MonoBehaviour
     [SerializeField] private float hoverScale;
     [SerializeField] private float draggingScale;
     [SerializeField] private float dragBox;
+    [SerializeField] private Vector2 wiggleRange;
+    [SerializeField] private float wiggleFrequency;
 
     private Grid grid;
     private PlaceableManager placeableManager;
@@ -44,7 +46,8 @@ public class Placeable : MonoBehaviour
     {
         transform.localScale = Vector3.one * normalScale;
 
-
+        float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(Time.time * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
+        transform.localEulerAngles = new Vector3(0, 0, zRotation);
     }
 
     private void NotPlaced()
