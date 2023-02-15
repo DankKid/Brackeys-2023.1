@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+    [SerializeField] private float pivotYOffset;
     [SerializeField] private Vector2 origin;
     [SerializeField] private Vector2Int size;
     [SerializeField] private Vector2 scale;
@@ -33,7 +34,7 @@ public class Grid : MonoBehaviour
     }
     public Vector2 GetCellCenter(Vector2Int cell)
     {
-        return origin + (new Vector2(cell.x, cell.y) * scale);
+        return (origin + (new Vector2(cell.x, cell.y) * scale)) + new Vector2(0, pivotYOffset);
     }
     public bool TryPlaceAtPosition(Vector2 position, Placeable placeable, out Vector2Int cell)
     {

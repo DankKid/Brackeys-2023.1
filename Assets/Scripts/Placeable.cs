@@ -7,7 +7,10 @@ public class Placeable : MonoBehaviour
     [SerializeField] private float normalScale;
     [SerializeField] private float hoverScale;
     [SerializeField] private float draggingScale;
-    [SerializeField] private float dragBox;
+    [SerializeField] private GameObject dragBox;
+    [SerializeField] private Transform projectileSpawn;
+    [SerializeField] private Transform projectilesTransform;
+    [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Vector2 wiggleRange;
     [SerializeField] private float wiggleFrequency;
 
@@ -22,12 +25,17 @@ public class Placeable : MonoBehaviour
     public bool IsPlaced { get; private set; } = false;
     public Vector2Int? CellPosition { get; private set; } = null;
 
+    private float placementTime;
+    private int projectilesShot = 0;
+
     private void Awake()
     {
         grid = FindObjectOfType<Grid>();
         placeableManager = FindObjectOfType<PlaceableManager>();
 
         defaultPosition = transform.position;
+
+        dragBox.SetActive(false);
     }
 
     private void Update()
@@ -46,8 +54,17 @@ public class Placeable : MonoBehaviour
     {
         transform.localScale = Vector3.one * normalScale;
 
-        float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(Time.time * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
+        float timeSincePlacement = Time.time - placementTime;
+
+        float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(timeSincePlacement * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
         transform.localEulerAngles = new Vector3(0, 0, zRotation);
+
+        int expectedProjectilesShot = 1 + (int)(timeSincePlacement / wiggleFrequency);
+        if (expectedProjectilesShot > projectilesShot)
+        {
+            Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity, projectilesTransform);
+            projectilesShot++;
+        }
     }
 
     private void NotPlaced()
@@ -75,6 +92,7 @@ public class Placeable : MonoBehaviour
                     CellPosition = cell;
                     Vector2 cellCenter = grid.GetCellCenter(cell);
                     transform.position = cellCenter;
+                    placementTime = Time.time;
                 }
                 else
                 {
@@ -101,8 +119,10 @@ public class Placeable : MonoBehaviour
 
     private bool IsHovering(Vector3 mousePositionWorld)
     {
-        float halfDragBox = dragBox / 2f;
+        mousePositionWorld -= dragBox.transform.localPosition;
+        float halfDragBoxX = dragBox.transform.localScale.x / 2f;
+        float halfDragBoxY = dragBox.transform.localScale.y / 2f;
         Vector2 diff = transform.position - mousePositionWorld;
-        return Mathf.Abs(diff.x) <= halfDragBox && Mathf.Abs(diff.y) <= halfDragBox;
+        return Mathf.Abs(diff.x) <= halfDragBoxX && Mathf.Abs(diff.y) <= halfDragBoxY;
     }
 }
