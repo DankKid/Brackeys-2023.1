@@ -16,6 +16,7 @@ public class SplashController : MonoBehaviour
     public GameObject imageGO;
     bool fading;
     bool backFading;
+    [Range(0f, 10f)] public float fadeSpeed;
 
     [SerializeField] AudioSource music;
 
@@ -27,6 +28,7 @@ public class SplashController : MonoBehaviour
         vid.Play();
         fading = false;
         backFading = false;
+        music.volume = 0;
     }
 
     private void Update()
@@ -40,9 +42,9 @@ public class SplashController : MonoBehaviour
         }
 
 
-        
 
-        if(timer < 1 && !fading)
+
+        if (timer < 1 && !fading)
         {
             fading = true;
             image.CrossFadeAlpha(0f, 0.5f, true);
@@ -56,15 +58,30 @@ public class SplashController : MonoBehaviour
         if(timer < -0.5f)
         {
             music.Play();
-            splash.SetActive(false);
+            
+            Debug.Log("Started playing music!");
+            
         }
+
+
 
     }
 
+    private void fadeAudio()
+    {
+       music.volume += 0.005f;
+    }
 
     private void FixedUpdate()
     {
-        
+
+        if (music.isPlaying && music.volume < 0.25f)
+        {
+
+            fadeAudio();
+        }
+        if(music.volume >= 0.25f)
+            splash.SetActive(false);
     }
 
 }

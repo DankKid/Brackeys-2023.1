@@ -8,11 +8,11 @@ using CodeMonkey.Utils;
 
 public class TitleManager : MonoBehaviour
 {
-    //[SerializeField] Animator anim;
+    [SerializeField] Animator optionAnim;
     [SerializeField] Slider slider;
     [SerializeField] AudioMixer audioMixer;
-    public Vector2 scrollSpeed;
-    [SerializeField] GameObject playButton, optionButton;
+    
+    [SerializeField] GameObject playButton, optionButton, backButton;
 
     //[SerializeField] Animator playAnim, OptionAnim;
 
@@ -24,24 +24,24 @@ public class TitleManager : MonoBehaviour
     bool optionsIsOpened = false;
 
 
-    /*
+    
     public void Options()
     {
         if (optionsIsOpened)
         {
-            anim.SetTrigger("CloseOP");
+            optionAnim.SetTrigger("CloseOP");
         }
         if (!optionsIsOpened)
         {
-            anim.SetTrigger("OpenOP");
+            optionAnim.SetTrigger("OpenOP");
         }
     }
 
     public void CloseOptions()
     {
-        anim.SetTrigger("CloseOP");
+        optionAnim.SetTrigger("CloseOP");
     }
-    */
+    
     public void QuitGame()
     {
         Application.Quit();
@@ -51,15 +51,15 @@ public class TitleManager : MonoBehaviour
     private void Start()
     {
         SetVolumeOnStart();
-
-
-        scrollSpeed = new Vector2(0.01f, 0.0f);
-
+        
         playButton.transform.GetComponent<Button_UI>().MouseOverOnceFunc = () => hoverOnPlay();
         playButton.transform.GetComponent<Button_UI>().MouseOutOnceFunc = () => hoverOffPlay();
 
         optionButton.transform.GetComponent<Button_UI>().MouseOverOnceFunc = () => hoverOnOptions();
         optionButton.transform.GetComponent<Button_UI>().MouseOutOnceFunc = () => hoverOffOptions();
+
+        backButton.transform.GetComponent<Button_UI>().MouseOverOnceFunc = () => hoverOnBack();
+        backButton.transform.GetComponent<Button_UI>().MouseOutOnceFunc = () => hoverOffBack();
     }
     private void SetVolumeOnStart()
     {
@@ -84,21 +84,30 @@ public class TitleManager : MonoBehaviour
     }
 
 
-
+    
     private void hoverOnPlay()
     {
-        //playAnim.SetTrigger("PlayShake");
+        playButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
     }
     private void hoverOffPlay()
     {
-        //playAnim.SetTrigger("PlayStop");
+        playButton.transform.localScale = new Vector3(1f, 1f, 1f);
     }
     private void hoverOnOptions()
     {
-        //OptionAnim.SetTrigger("OptionShake");
+        optionButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
     }
     private void hoverOffOptions()
     {
-        //OptionAnim.SetTrigger("OptionStop");
+        optionButton.transform.localScale = new Vector3(1f, 1f, 1f);
     }
+    private void hoverOnBack()
+    {
+        backButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+    }
+    private void hoverOffBack()
+    {
+        backButton.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
 }
