@@ -10,12 +10,14 @@ public class Placeable : MonoBehaviour
     [SerializeField] private GameObject dragBox;
     [SerializeField] private Transform projectileSpawn;
     [SerializeField] private Transform projectilesTransform;
+    [SerializeField] private Transform spriteTransform;
+    [SerializeField] private Transform colliderTransform;
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Vector2 wiggleRange;
     [SerializeField] private float wiggleFrequency;
 
-    private Grid grid;
-    private PlaceableManager placeableManager;
+    private PlaceableGrid grid;
+    private PlaceableManager manager;
 
     private Vector2 defaultPosition;
 
@@ -30,8 +32,8 @@ public class Placeable : MonoBehaviour
 
     private void Awake()
     {
-        grid = FindObjectOfType<Grid>();
-        placeableManager = FindObjectOfType<PlaceableManager>();
+        grid = FindObjectOfType<PlaceableGrid>();
+        manager = FindObjectOfType<PlaceableManager>();
 
         defaultPosition = transform.position;
 
@@ -57,9 +59,9 @@ public class Placeable : MonoBehaviour
         float timeSincePlacement = Time.time - placementTime;
 
         float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(timeSincePlacement * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
-        transform.localEulerAngles = new Vector3(0, 0, zRotation);
+        spriteTransform.localEulerAngles = new Vector3(0, 0, zRotation);
 
-        int expectedProjectilesShot = 1 + (int)(timeSincePlacement / wiggleFrequency);
+        int expectedProjectilesShot = 1 + (int)(timeSincePlacement * wiggleFrequency);
         if (expectedProjectilesShot > projectilesShot)
         {
             Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity, projectilesTransform);
@@ -91,7 +93,7 @@ public class Placeable : MonoBehaviour
                     IsPlaced = true;
                     CellPosition = cell;
                     Vector2 cellCenter = grid.GetCellCenter(cell);
-                    transform.position = cellCenter;
+                    transform.position = (Vector3)cellCenter - colliderTransform.localPosition;
                     placementTime = Time.time;
                 }
                 else
