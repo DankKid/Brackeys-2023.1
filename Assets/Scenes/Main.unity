@@ -349,7 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38dbbf4e869c51a48a840db5ceb55a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivotYOffset: 0
   origin: {x: 0.5, y: 0.6}
   size: {x: 10, y: 5}
   scale: {x: 1, y: 1.2}
@@ -699,7 +698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3712, y: 0.6527}
+  m_AnchoredPosition: {x: 0.53, y: 0.6527}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1240033406
@@ -848,7 +847,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1037,7 +1036,7 @@ MonoBehaviour:
   spriteTransform: {fileID: 216709007}
   colliderTransform: {fileID: 1352309497}
   projectilePrefab: {fileID: 4991132852113353650, guid: fac99768679ed854db0036132bb31c48, type: 3}
-  wiggleRange: {x: -20, y: 5}
+  wiggleRange: {x: -10, y: 1}
   wiggleFrequency: 0.42
 --- !u!224 &1473510989
 RectTransform:

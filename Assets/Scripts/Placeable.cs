@@ -61,10 +61,11 @@ public class Placeable : MonoBehaviour
         float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(timeSincePlacement * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
         spriteTransform.localEulerAngles = new Vector3(0, 0, zRotation);
 
-        int expectedProjectilesShot = 1 + (int)(timeSincePlacement * wiggleFrequency);
+        int expectedProjectilesShot = (int)(timeSincePlacement * wiggleFrequency); // + 1; // shoot when placed down
         if (expectedProjectilesShot > projectilesShot)
         {
-            Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity, projectilesTransform);
+            Projectile projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectilePrefab.transform.rotation, projectilesTransform);
+            projectile.SetInstantiator(this);
             projectilesShot++;
         }
     }
