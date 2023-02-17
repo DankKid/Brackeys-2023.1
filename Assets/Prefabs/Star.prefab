@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 10
   spriteRenderer: {fileID: 8471075670953273885}
-  timeToFadeIn: 1.5
+  timeToFadeIn: 1
   rotationSpeedDegreesPerSecond: 180
   movementDistance: 1
   clickCircle: {fileID: 1804476265350023872}
