@@ -817,20 +817,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 832769676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befc0d43adec86546be42824429fec68, type: 3}
+  m_Script: {fileID: 11500000, guid: 29ebe9535dd7b9041bfaf522eb3d87f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
-  dragBox: {fileID: 273270863}
-  projectileSpawn: {fileID: 1063239803}
-  projectilesTransform: {fileID: 1096072707}
-  spriteTransform: {fileID: 2142637092}
   colliderTransform: {fileID: 1891523826}
-  projectilePrefab: {fileID: 4991132852113353650, guid: fac99768679ed854db0036132bb31c48, type: 3}
-  wiggleRange: {x: -10, y: 1}
-  wiggleFrequency: 0.42
+  dragBox: {fileID: 273270863}
+  spriteRenderer: {fileID: 2142637093}
+  isDragFromClickPointEnabled: 0
+  wiggleRange: {x: -10, y: 10}
+  wiggleFrequency: 0.25
 --- !u!1 &1063239802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,17 +1287,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1473510985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befc0d43adec86546be42824429fec68, type: 3}
+  m_Script: {fileID: 11500000, guid: d6f49cbbef3809546b684a21e568f162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
-  dragBox: {fileID: 235936906}
-  projectileSpawn: {fileID: 1231187211}
-  projectilesTransform: {fileID: 1096072707}
-  spriteTransform: {fileID: 216709007}
   colliderTransform: {fileID: 1352309497}
+  dragBox: {fileID: 235936906}
+  spriteRenderer: {fileID: 216709008}
+  isDragFromClickPointEnabled: 0
+  projectileSpawnTransform: {fileID: 1231187211}
+  projectilesTransform: {fileID: 1096072707}
   projectilePrefab: {fileID: 4991132852113353650, guid: fac99768679ed854db0036132bb31c48, type: 3}
   wiggleRange: {x: -10, y: 1}
   wiggleFrequency: 0.42

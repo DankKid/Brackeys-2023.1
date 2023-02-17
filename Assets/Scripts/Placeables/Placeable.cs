@@ -11,15 +11,7 @@ public abstract class Placeable : MonoBehaviour
     [SerializeField] private Transform colliderTransform;
     [SerializeField] private GameObject dragBox;
     
-    [SerializeField] private Transform spriteTransform;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-
-    [SerializeField] private Transform projectileSpawnTransform;
-    [SerializeField] private Transform projectilesTransform;
-    [SerializeField] private Projectile projectilePrefab;
-
-    [SerializeField] private Vector2 wiggleRange;
-    [SerializeField] private float wiggleFrequency;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
     [SerializeField] private bool isDragFromClickPointEnabled;
 
@@ -27,14 +19,13 @@ public abstract class Placeable : MonoBehaviour
     private PlaceableManager manager;
 
     private Vector2 defaultPosition;
-    private bool IsDragging { get; private set; } = false;
+    protected bool IsDragging { get; private set; } = false;
     private Vector2 dragOffset = Vector2.zero;
 
     private float placementTime;
+    protected float TimeSincePlacement => Time.time - placementTime;
     public bool IsPlaced { get; private set; } = false;
     public Vector2Int? CellPosition { get; private set; } = null;
-
-    private int projectilesShot = 0;
 
     // 0 is transparent, 1 is opaque
     public void SetAlpha(float a)
@@ -65,7 +56,6 @@ public abstract class Placeable : MonoBehaviour
         if (IsPlaced)
         {
             transform.localScale = Vector3.one * normalScale;
-            float timeSincePlacement = Time.time - placementTime;
             Placed();
             PlacedUpdate();
         }
@@ -79,16 +69,7 @@ public abstract class Placeable : MonoBehaviour
 
     private void Placed()
     {
-        float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(timeSincePlacement * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
-        spriteTransform.localEulerAngles = new Vector3(0, 0, zRotation);
 
-        int expectedProjectilesShot = (int)(timeSincePlacement * wiggleFrequency); // + 1; // shoot when placed down
-        if (expectedProjectilesShot > projectilesShot)
-        {
-            Projectile projectile = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectilePrefab.transform.rotation, projectilesTransform);
-            projectile.SetInstantiator(this);
-            projectilesShot++;
-        }
     }
 
     private void Unplaced()
@@ -102,6 +83,10 @@ public abstract class Placeable : MonoBehaviour
                 if (isDragFromClickPointEnabled)
                 {
                     dragOffset = (Vector2)transform.position - mousePositionWorld;
+                }
+                else
+                {
+                    dragOffset = Vector2.zero;
                 }
             }
         }
