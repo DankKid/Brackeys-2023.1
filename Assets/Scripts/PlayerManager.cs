@@ -18,6 +18,8 @@ public class PlayerManager : MonoBehaviour
     Color zombieLight = new Color(0,202,255,255);
     Color machineLight = new Color(255,89,0,255);
     Color defaultLight = new Color(255, 255, 255, 255);
+
+
     public void NextPhase()
     {
         if(currentPhase < 3)
@@ -54,6 +56,7 @@ public class PlayerManager : MonoBehaviour
     void gameOver()
     {
         calculateScore();
+        globalLight.color = defaultLight;
         gameOverScreen.SetActive(true);
     }
 
