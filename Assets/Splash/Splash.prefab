@@ -56,6 +56,7 @@ MonoBehaviour:
   image: {fileID: 5873982483131903546}
   background: {fileID: 5873982482691885823}
   imageGO: {fileID: 5873982483131903548}
+  fadeSpeed: 0
   music: {fileID: 0}
 --- !u!1 &5873982482691885809
 GameObject:
