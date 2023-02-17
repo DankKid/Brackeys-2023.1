@@ -1157,6 +1157,10 @@ MonoBehaviour:
   dragBox: {fileID: 273270863}
   spriteRenderer: {fileID: 2142637093}
   isDragFromClickPointEnabled: 0
+  generationCooldown: 20
+  currencySpawnTransform: {fileID: 1063239803}
+  currenciesTransform: {fileID: 1621989728}
+  currencyPrefab: {fileID: 8471075670953273883, guid: a1a458a7c7961fe4484b6a19e6d81ae9, type: 3}
   wiggleRange: {x: -10, y: 10}
   wiggleFrequency: 0.25
 --- !u!1 &924267372
@@ -1374,7 +1378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063239803}
   m_Layer: 0
-  m_Name: Projectile Spawn
+  m_Name: Currency Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,7 +1401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.043, y: 0.391}
+  m_AnchoredPosition: {x: -0.065, y: 0.38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1096072706
@@ -2331,6 +2335,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491765010}
   m_CullTransparentMesh: 1
+--- !u!1 &1621989727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621989728}
+  m_Layer: 0
+  m_Name: Currencies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621989728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621989727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1654899292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2398,7 @@ Transform:
   - {fileID: 249343704}
   - {fileID: 783532104}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767738459
 GameObject:
@@ -2565,7 +2600,7 @@ RectTransform:
   - {fileID: 924267373}
   - {fileID: 1364171466}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
