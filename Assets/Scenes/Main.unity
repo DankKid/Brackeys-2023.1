@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 452591405}
   - component: {fileID: 452591407}
   - component: {fileID: 452591406}
+  - component: {fileID: 452591408}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -684,6 +685,30 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9068cb849ae4b4b4fab81711af338cf9, type: 3}
   - {fileID: 8300000, guid: 928b961c11930914dbe6c85d5c238585, type: 3}
   source: {fileID: 452591406}
+--- !u!114 &452591408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452591402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827649b3e58082440b1ab9f61ac0c64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPhase: 0
+  currentDollar: 0
+  currentMoney: {fileID: 1356790909}
+  finalScore: {fileID: 2118388155}
+  bestScoreText: {fileID: 1349223782}
+  currentCurrency: {fileID: 669760697}
+  currencies:
+  - {fileID: 21300000, guid: 4ad25906121432740bbdf4275bd31ab5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  globalLight: {fileID: 783532105}
+  gameOverScreen: {fileID: 1808454147}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1270,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924267375}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 452591408}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924267375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2153,7 +2190,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1364171468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 452591408}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: Home
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1364171468
 MonoBehaviour:
   m_ObjectHideFlags: 0

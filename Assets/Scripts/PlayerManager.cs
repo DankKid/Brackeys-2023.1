@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text currentMoney, finalScore, bestScoreText;
     [SerializeField] Image currentCurrency;
     [SerializeField] List<Sprite> currencies = new List<Sprite>();
-    [SerializeField] Light globalLight;
+    [SerializeField] UnityEngine.Rendering.Universal.Light2D globalLight;
     [SerializeField] GameObject gameOverScreen;
 
     Color zombieLight = new Color(0,202,255,255);
@@ -63,9 +64,16 @@ public class PlayerManager : MonoBehaviour
     public void getMoney(int value)
     {
         currentDollar += value;
+        currentMoney.text = currentDollar +"";
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            getMoney(10);
+        }
+    }
 
     void calculateScore()
     {
@@ -79,4 +87,16 @@ public class PlayerManager : MonoBehaviour
         }
         bestScoreText.text = "Best Score: " + bestScore;
     }
+
+
+    public void Home()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 }
