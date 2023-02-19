@@ -16,9 +16,27 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] UnityEngine.Rendering.Universal.Light2D globalLight;
     [SerializeField] GameObject gameOverScreen;
 
+    [SerializeField] List<SpriteRenderer> currentDefenderSprites;
+    [SerializeField] List<Sprite> plantDefenderSprites, zombieDefenderSprites;
+
+
+
+
     Color zombieLight = new Color(0,202,255,255);
     Color machineLight = new Color(255,89,0,255);
     Color defaultLight = new Color(255, 255, 255, 255);
+
+    private void Start()
+    {
+        currentDollar = 0;
+        currentPhase = 1;
+
+        for (int i = 0; i < currentDefenderSprites.Count; i++)
+        {
+            currentDefenderSprites[i].sprite = plantDefenderSprites[i];
+        }
+    }
+
 
 
     public void NextPhase()
@@ -28,6 +46,14 @@ public class PlayerManager : MonoBehaviour
             currentCurrency.sprite = currencies[currentPhase - 1];
             currentMoney.text = "0";
             currentPhase++;
+
+            for(int i = 0; i < currentDefenderSprites.Count; i++)
+            {
+                currentDefenderSprites[i].sprite = zombieDefenderSprites[i];
+            }
+
+
+
         }
         else
         {

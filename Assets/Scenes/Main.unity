@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827649b3e58082440b1ab9f61ac0c64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPhase: 0
+  currentPhase: 1
   currentDollar: 0
   currentMoney: {fileID: 1356790909}
   finalScore: {fileID: 2118388155}
@@ -705,10 +705,16 @@ MonoBehaviour:
   currentCurrency: {fileID: 1658076559}
   currencies:
   - {fileID: 21300000, guid: 4ad25906121432740bbdf4275bd31ab5, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f6af042f9ddba754d9b652c2da846db9, type: 3}
   globalLight: {fileID: 783532105}
   gameOverScreen: {fileID: 1808454147}
+  currentDefenderSprites:
+  - {fileID: 216709008}
+  - {fileID: 2142637093}
+  plantDefenderSprites:
+  - {fileID: 21300000, guid: 7abf510501d1382449ef89efae03fd3d, type: 3}
+  - {fileID: 21300000, guid: 435d0acd90be66a4c855261ac1962793, type: 3}
+  zombieDefenderSprites: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,7 +2590,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1767738462
 Canvas:
   m_ObjectHideFlags: 0
@@ -2594,7 +2600,7 @@ Canvas:
   m_GameObject: {fileID: 1767738459}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2614,8 +2620,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767738459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.015384615, y: 0.015384615, z: 0.015384615}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1491765011}
@@ -2624,9 +2630,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 6, y: 5.25}
+  m_SizeDelta: {x: 960, y: 650}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1808454147
 GameObject:
   m_ObjectHideFlags: 0
