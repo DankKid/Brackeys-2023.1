@@ -12,8 +12,6 @@ public class PlaceableManager : MonoBehaviour
     private readonly List<Placeable> unplaced = new();
     private readonly List<Placeable> placed = new();
 
-    // TODO Gray out placeables you cant afford
-
     private void Awake()
     {
         for (int i = 0; i < placeablesTransform.childCount; i++)
