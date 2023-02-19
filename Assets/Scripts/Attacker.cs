@@ -18,6 +18,8 @@ public class Attacker : MonoBehaviour
     private float attackingX = 0;
     private float attackTime = 0;
     private int hits = 0;
+    private float slipTime = 0;
+    private float slipEndpoint = 0;
 
     // https://www.desmos.com/calculator/ixjzuo7i4g
 
@@ -49,30 +51,44 @@ public class Attacker : MonoBehaviour
 
     private void Update()
     {
-        if (target == null)
+        if (slipTime > 0)
         {
+            slipTime -= Time.deltaTime;
+            if (slipTime < 0)
+            {
+                slipTime = 0;
+            }
             Vector3 position = transform.position;
-            position.x -= Time.deltaTime * speed * (walkConstant + Mathf.Pow((transform.position.x + offset) % 1f, 1f / lurchConstant));
+            position.x = Mathf.Lerp(slipEndpoint, slipEndpoint - 5f, Mathf.Pow(slipTime, 2f));
             transform.position = position;
-
-            attackingX = position.x;
-            attackTime = 0;
-            hits = 0;
         }
         else
         {
-            // attack
-            attackTime += Time.deltaTime;
-            Vector3 position = transform.position;
-            float t = (-Mathf.Pow(2 * ((attackTime % 1f) - 0.5f), 4f)) + 1f;
-            position.x = Mathf.Lerp(attackingX, attackingX + 0.5f, t);
-            transform.position = position;
-
-            int expectedHits = (int)(attackTime + 1f);
-            if (expectedHits > hits)
+            if (target == null)
             {
-                hits++;
-                target.Damage(damage);
+                Vector3 position = transform.position;
+                position.x -= Time.deltaTime * speed * (walkConstant + Mathf.Pow((transform.position.x + offset) % 1f, 1f / lurchConstant));
+                transform.position = position;
+
+                attackingX = position.x;
+                attackTime = 0;
+                hits = 0;
+            }
+            else
+            {
+                // attack
+                attackTime += Time.deltaTime;
+                Vector3 position = transform.position;
+                float t = (-Mathf.Pow(2 * ((attackTime % 1f) - 0.5f), 4f)) + 1f;
+                position.x = Mathf.Lerp(attackingX, attackingX + 0.5f, t);
+                transform.position = position;
+
+                int expectedHits = (int)(attackTime + 1f);
+                if (expectedHits > hits)
+                {
+                    hits++;
+                    target.Damage(damage);
+                }
             }
         }
 
@@ -100,10 +116,13 @@ public class Attacker : MonoBehaviour
         if (collision.gameObject.CompareTag("Slip"))
         {
             //Push Back
+            slipTime = 1;
+            slipEndpoint = transform.position.x + 5f;
 
-
-
-        }else if (collision.gameObject.CompareTag("Explode"))
+            placeable.Damage(100000);
+            Damage(placeable.damage);
+        }
+        else if (collision.gameObject.CompareTag("Explode"))
         {
             placeable.Damage(100000);
             Damage(100000);

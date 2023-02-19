@@ -102,7 +102,7 @@ MonoBehaviour:
   damage: 5
   startingHealth: 20
   lurchConstant: 3
-  walkConstant: 0.25
+  walkConstant: 1
   speed: 0.33
   movementCooldown: 0.1
 --- !u!50 &1769415583435175850
