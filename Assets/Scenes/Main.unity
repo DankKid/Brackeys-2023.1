@@ -1031,7 +1031,7 @@ MonoBehaviour:
   robots:
   - {fileID: 1769415583435175848, guid: ed49aaf05aee59144862269387ad05c4, type: 3}
   - {fileID: 1769415583435175848, guid: fbcfe938e82244a408255d407f73cbdc, type: 3}
-  waveText: {fileID: 0}
+  waveText: {fileID: 323932707}
   wave: 0
 --- !u!114 &452591410
 MonoBehaviour:
