@@ -87,7 +87,7 @@ public class TitleManager : MonoBehaviour
     
     private void hoverOnPlay()
     {
-        playButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        playButton.transform.localScale = new Vector3(1.25f, 1.25f, 1f);
     }
     private void hoverOffPlay()
     {
@@ -95,7 +95,7 @@ public class TitleManager : MonoBehaviour
     }
     private void hoverOnOptions()
     {
-        optionButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        optionButton.transform.localScale = new Vector3(1.25f, 1.25f, 1f);
     }
     private void hoverOffOptions()
     {
@@ -103,7 +103,7 @@ public class TitleManager : MonoBehaviour
     }
     private void hoverOnBack()
     {
-        backButton.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        backButton.transform.localScale = new Vector3(1.25f, 1.25f, 1f);
     }
     private void hoverOffBack()
     {
