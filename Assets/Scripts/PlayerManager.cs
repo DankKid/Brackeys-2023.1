@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        currentDollar = 0;
+        currentDollar = 15;
         currentPhase = 0;
 
         for (int i = 0; i < currentDefenderSprites.Count; i++)
@@ -84,7 +84,7 @@ public class PlayerManager : MonoBehaviour
         {
             globalLight.color = zombieLight;
             p0Money = currentDollar;
-            currentDollar = 0;
+            currentDollar = 15;
             getMoney(0);
             currentPhase++;
             currentCurrency.sprite = currencies[1];
@@ -103,7 +103,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             p1Money = currentDollar;
-            currentDollar = 0;
+            currentDollar = 15;
             getMoney(0);
             gameOver();
             

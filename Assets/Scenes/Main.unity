@@ -867,8 +867,8 @@ MonoBehaviour:
   - {fileID: 1145008804}
   - {fileID: 1580425376}
   plantDefenderSprites:
-  - {fileID: 21300000, guid: 7abf510501d1382449ef89efae03fd3d, type: 3}
   - {fileID: 21300000, guid: 435d0acd90be66a4c855261ac1962793, type: 3}
+  - {fileID: 21300000, guid: 7abf510501d1382449ef89efae03fd3d, type: 3}
   - {fileID: 21300000, guid: 021dcc6ca728814429f6573f2b5aec80, type: 3}
   - {fileID: 21300000, guid: 09a97f434efbcdc47b876c44076be533, type: 3}
   - {fileID: 21300000, guid: 87c71f62376fadf4b93552d6e715408d, type: 3}
