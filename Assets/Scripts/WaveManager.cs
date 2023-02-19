@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private List<Attacker> zombies;
     [SerializeField] private List<Attacker> robots;
+
+    [SerializeField] private TMP_Text waveText;
 
     public int wave = 0;
 
@@ -31,6 +34,8 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        waveText.text = $"Wave: {wave}";
+
         attackers.RemoveAll(a => a == null);
 
         if (IsWaveComplete())
