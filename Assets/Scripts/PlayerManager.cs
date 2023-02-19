@@ -90,6 +90,15 @@ public class PlayerManager : MonoBehaviour
             currentCurrency.sprite = currencies[1];
             p0Wave = FindObjectOfType<WaveManager>().wave;
             FindObjectOfType<WaveManager>().wave = 0;
+
+
+            for (int i = 0; i < currentDefenderSprites.Count; i++)
+            {
+                currentDefenderSprites[i].sprite = zombieDefenderSprites[i];
+            }
+
+
+
         }
         else
         {

@@ -861,12 +861,23 @@ MonoBehaviour:
   globalLight: {fileID: 783532105}
   gameOverScreen: {fileID: 1808454147}
   currentDefenderSprites:
-  - {fileID: 216709008}
   - {fileID: 2142637093}
+  - {fileID: 216709008}
+  - {fileID: 1657961196}
+  - {fileID: 1145008804}
+  - {fileID: 1580425376}
   plantDefenderSprites:
   - {fileID: 21300000, guid: 7abf510501d1382449ef89efae03fd3d, type: 3}
   - {fileID: 21300000, guid: 435d0acd90be66a4c855261ac1962793, type: 3}
-  zombieDefenderSprites: []
+  - {fileID: 21300000, guid: 021dcc6ca728814429f6573f2b5aec80, type: 3}
+  - {fileID: 21300000, guid: 09a97f434efbcdc47b876c44076be533, type: 3}
+  - {fileID: 21300000, guid: 87c71f62376fadf4b93552d6e715408d, type: 3}
+  zombieDefenderSprites:
+  - {fileID: 21300000, guid: 08f0e9e106fafed42b8e0d0088214972, type: 3}
+  - {fileID: 21300000, guid: 1818cac3cf42df84aaaabfbcac8dac4c, type: 3}
+  - {fileID: 21300000, guid: 488c2526af6211e4eb01b451d83338a7, type: 3}
+  - {fileID: 21300000, guid: b5302450093bd234682ff5800017e0a7, type: 3}
+  - {fileID: 21300000, guid: ba40492db0535aa48bb52640309fe42d, type: 3}
 --- !u!114 &452591409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +925,7 @@ MonoBehaviour:
   place: {fileID: 8300000, guid: a29eb21d019b9ec4b84f8f51301b6dff, type: 3}
   failPlace: {fileID: 8300000, guid: 866111a3d3f4f9447a19c0734bee14a5, type: 3}
   select: {fileID: 8300000, guid: 2734b47a0e9599d4b89322a58fe069cb, type: 3}
+  getHit: {fileID: 0}
 --- !u!82 &452591411
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1196,7 +1208,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39a45a169b74ca04d9d6d7c04a0360c5, type: 2}
+  - {fileID: 2100000, guid: 91d39baeeb4468d438e9c013022c734f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1233,14 +1245,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602203538}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.78, y: 5.13, z: 61.26}
-  m_LocalScale: {x: 1.9477, y: 1, z: 1.3826}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 6, y: 5.43, z: 61.26}
+  m_LocalScale: {x: 1.75, y: 1, z: 1.06}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!1 &669760695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1848,7 @@ MonoBehaviour:
   dragBox: {fileID: 2130820880}
   spriteRenderer: {fileID: 1145008804}
   isDragFromClickPointEnabled: 0
+  audioSource: {fileID: 0}
 --- !u!1 &803529511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +1995,7 @@ MonoBehaviour:
   dragBox: {fileID: 273270863}
   spriteRenderer: {fileID: 2142637093}
   isDragFromClickPointEnabled: 0
+  audioSource: {fileID: 0}
   generationCooldown: 5
   currencySpawnTransform: {fileID: 1063239803}
   currenciesTransform: {fileID: 1621989728}
@@ -3321,6 +3335,7 @@ MonoBehaviour:
   dragBox: {fileID: 1455429821}
   spriteRenderer: {fileID: 1580425376}
   isDragFromClickPointEnabled: 0
+  audioSource: {fileID: 0}
 --- !u!1 &1473510985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,6 +3376,7 @@ MonoBehaviour:
   dragBox: {fileID: 235936906}
   spriteRenderer: {fileID: 216709008}
   isDragFromClickPointEnabled: 0
+  audioSource: {fileID: 1473510990}
   projectileSpawnTransform: {fileID: 1231187211}
   projectilesTransform: {fileID: 1096072707}
   projectilePrefab: {fileID: 4991132852113353650, guid: fac99768679ed854db0036132bb31c48, type: 3}
@@ -4662,7 +4678,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f165863247158b34f831ab570c7979af, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.44705883}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4848,6 +4864,7 @@ MonoBehaviour:
   dragBox: {fileID: 1724819995}
   spriteRenderer: {fileID: 1657961196}
   isDragFromClickPointEnabled: 0
+  audioSource: {fileID: 0}
 --- !u!1 &2000269923
 GameObject:
   m_ObjectHideFlags: 0
