@@ -79,6 +79,7 @@ public class Attacker : MonoBehaviour
         if (health <= 0)
         {
             // TODO DIE PARTICLES HERE
+            FindObjectOfType<PlayerManager>().getMoney(2);
             Destroy(gameObject);
         }
 
@@ -95,6 +96,21 @@ public class Attacker : MonoBehaviour
         {
             return;
         }
+
+        if (collision.gameObject.CompareTag("Slip"))
+        {
+            //Push Back
+
+
+
+        }else if (collision.gameObject.CompareTag("Explode"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+
+
+
 
         target = placeable;
     }

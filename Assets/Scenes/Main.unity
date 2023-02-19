@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 793539577}
   m_Layer: 7
   m_Name: Banananaanananaana Joe
-  m_TagString: Untagged
+  m_TagString: Slip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3129,7 +3129,7 @@ GameObject:
   - component: {fileID: 1461598305}
   m_Layer: 7
   m_Name: Fungus Bungus
-  m_TagString: Untagged
+  m_TagString: Explode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
