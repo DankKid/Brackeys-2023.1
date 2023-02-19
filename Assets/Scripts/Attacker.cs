@@ -95,6 +95,7 @@ public class Attacker : MonoBehaviour
         if (health <= 0)
         {
             // TODO DIE PARTICLES HERE
+            FindObjectOfType<ParticlesManager>().PlayDie(transform.position);
             FindObjectOfType<PlayerManager>().getMoney(2);
             Destroy(gameObject);
         }

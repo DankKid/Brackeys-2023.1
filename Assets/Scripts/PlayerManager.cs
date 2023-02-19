@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         {
             currentDefenderSprites[i].sprite = plantDefenderSprites[i];
         }
-        getMoney(0);
+        getMoney(15);
     }
 
 

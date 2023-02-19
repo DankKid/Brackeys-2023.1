@@ -58,5 +58,6 @@ public class Projectile : MonoBehaviour
 
         attacker.Damage(instantiator.damage);
         Destroy(gameObject);
+        FindObjectOfType<ParticlesManager>().PlayProjectile(transform.position);
     }
 }

@@ -25,6 +25,7 @@ public class TurretPlaceable : Placeable
         {
             Projectile projectile = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectilePrefab.transform.rotation, projectilesTransform);
             audioSource.Play();
+            FindObjectOfType<ParticlesManager>().PlayShoot(projectileSpawnTransform.position);
             projectile.SetInstantiator(this);
             projectilesShot++;
             
