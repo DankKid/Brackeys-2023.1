@@ -66,19 +66,27 @@ public class Attacker : MonoBehaviour
         else
         {
 
-            if (this.gameObject.CompareTag("Zombie"))
-            {
+            
                 if (timer <= 0)
                 {
+
+                if (this.gameObject.CompareTag("Zombie"))
+                {
                     FindObjectOfType<SoundManager>().PlayZombieGrunt(audioSource);
-                    audioSource.Play();
-                    timer = Random.Range(0, 5);
                 }
                 else
                 {
+                    FindObjectOfType<SoundManager>().PlayRobotBeep(audioSource);
+                }
+
+                audioSource.Play();
+                timer = Random.Range(0, 5);
+
+                }else
+                {
                     timer -= Time.deltaTime;
                 }
-            }
+            
 
 
             if (target == null)
