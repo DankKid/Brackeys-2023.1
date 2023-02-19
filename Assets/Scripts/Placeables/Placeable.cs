@@ -21,6 +21,8 @@ public abstract class Placeable : MonoBehaviour
 
     [SerializeField] private bool isDragFromClickPointEnabled;
 
+    [SerializeField] AudioSource audioSource;
+
     private PlaceableGrid grid;
     private PlayerManager playerManager;
 
@@ -102,6 +104,7 @@ public abstract class Placeable : MonoBehaviour
         {
             // TODO DIE STUFF HERE
             Destroy(gameObject);
+
         }
     }
 
@@ -197,11 +200,13 @@ public abstract class Placeable : MonoBehaviour
 
     protected virtual void OnTryPlace()
     {
-
+        //Failed Place
+        FindObjectOfType<SoundManager>().PlayFailPlace(audioSource);
     }
     protected virtual void OnPlace()
     {
-
+        //Place
+        FindObjectOfType<SoundManager>().PlayPlace(audioSource);
     }
 
     protected virtual void UnplacedUpdate()

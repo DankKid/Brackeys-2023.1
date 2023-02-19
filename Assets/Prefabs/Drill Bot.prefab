@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1769415583435175853}
   - component: {fileID: 8257797386128121886}
   m_Layer: 0
-  m_Name: Zom-boy
-  m_TagString: Zombie
+  m_Name: Drill Bot
+  m_TagString: Robot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 204147527febb134182622c841c07cb8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43d30d0d97f3b404fa7c1306b65f14a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   startingHealth: 20
-  lurchConstant: 3
-  walkConstant: 1
-  speed: 0.33
-  movementCooldown: 0.1
+  lurchConstant: 5
+  walkConstant: 2.5
+  speed: 0.5
+  movementCooldown: 0.15
   audioSource: {fileID: 8257797386128121886}
 --- !u!50 &1769415583435175850
 Rigidbody2D:
@@ -144,8 +144,8 @@ BoxCollider2D:
   m_Offset: {x: -0.084830284, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6460127, y: 0.32534376}
-    oldSize: {x: 0.81490386, y: 1.7307693}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.39, y: 3.01}
     newSize: {x: 0.47083333, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

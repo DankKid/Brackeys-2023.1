@@ -10,6 +10,7 @@ public class Attacker : MonoBehaviour
     [SerializeField] private float walkConstant;
     [SerializeField] private float speed;
     [SerializeField] private float movementCooldown;
+    [SerializeField] private AudioSource audioSource;
 
     private PlaceableGrid grid;
     private int health;
@@ -20,7 +21,7 @@ public class Attacker : MonoBehaviour
     private int hits = 0;
     private float slipTime = 0;
     private float slipEndpoint = 0;
-
+    private float timer = 0;
     // https://www.desmos.com/calculator/ixjzuo7i4g
 
     // 1-5
@@ -64,6 +65,22 @@ public class Attacker : MonoBehaviour
         }
         else
         {
+
+            if (this.gameObject.CompareTag("Zombie"))
+            {
+                if (timer <= 0)
+                {
+                    FindObjectOfType<SoundManager>().PlayZombieGrunt(audioSource);
+                    audioSource.Play();
+                    timer = Random.Range(0, 5);
+                }
+                else
+                {
+                    timer -= Time.deltaTime;
+                }
+            }
+
+
             if (target == null)
             {
                 Vector3 position = transform.position;
@@ -131,7 +148,8 @@ public class Attacker : MonoBehaviour
 
 
 
-
+        FindObjectOfType<SoundManager>().PlayHit(audioSource);
+        audioSource.Play();
         target = placeable;
     }
 }

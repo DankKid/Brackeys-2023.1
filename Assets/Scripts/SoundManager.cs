@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] List<AudioClip> zombieGrunt, zombieGloat;
 
-    [SerializeField] AudioClip shoot, hit, place, failPlace, select;
+    [SerializeField] AudioClip shoot, hit, place, failPlace, select, getHit;
 
     public void PlayZombieGrunt(AudioSource source)
     {
@@ -64,6 +64,12 @@ public class SoundManager : MonoBehaviour
     public void PlaySelect(AudioSource source)
     {
         source.clip = select;
+        source.Play();
+    }
+
+    public void PlayGetHit(AudioSource source)
+    {
+        source.clip = getHit;
         source.Play();
     }
 
