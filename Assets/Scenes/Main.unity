@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680f60029109e2f42abbdecbc6f4fbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curve: {x: 1.1, y: 5.9, z: 10, w: 0}
+  curve: {x: 0.1, y: 1.9, z: 5, w: 1}
   spawnTimeConstant: 3
   spawnTimePerAttacker: 0.15
   zombies:

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f34be1e07a1ef143b1f96200b6bc4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 14393
   startingHealth: 20
   lurchConstant: 3
   walkConstant: 1
