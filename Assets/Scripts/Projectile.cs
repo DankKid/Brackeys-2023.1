@@ -49,15 +49,14 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        Placeable placeable = collision.gameObject.GetComponentInParent<Placeable>();
-        if (placeable == null || placeable == instantiator)
+        if (!collision.gameObject.TryGetComponent(out Attacker attacker))
         {
             return;
         }
+
+        attacker.Damage(instantiator.damage);
         Destroy(gameObject);
-        */
     }
 }

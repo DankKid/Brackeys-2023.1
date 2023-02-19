@@ -19,6 +19,8 @@ public class PlaceableGrid : MonoBehaviour
     private void Update()
     {
         // print(GetSelectedCell() + " " + GetCellCenter(GetSelectedCell()) + " " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+        cells.RemoveAll(c => c.placeable == null);
     }
 
     public Vector2Int GetSelectedCell()

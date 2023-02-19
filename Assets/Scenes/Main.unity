@@ -1182,6 +1182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ebe9535dd7b9041bfaf522eb3d87f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  startingHealth: 0
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
@@ -2277,6 +2279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f49cbbef3809546b684a21e568f162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  startingHealth: 10
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
@@ -3061,6 +3065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f34be1e07a1ef143b1f96200b6bc4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  startingHealth: 1988
   lurchConstant: 3
   walkConstant: 0.25
   speed: 0.33

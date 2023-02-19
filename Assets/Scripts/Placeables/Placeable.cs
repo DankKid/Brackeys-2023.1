@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Placeable : MonoBehaviour
 {
+    public int damage;
+
+    [SerializeField] private int startingHealth;
+
     [SerializeField] private float normalScale;
     [SerializeField] private float hoverScale;
     [SerializeField] private float draggingScale;
@@ -16,7 +20,6 @@ public abstract class Placeable : MonoBehaviour
     [SerializeField] private bool isDragFromClickPointEnabled;
 
     private PlaceableGrid grid;
-    private PlaceableManager manager;
 
     private Vector2 defaultPosition;
     protected bool IsDragging { get; private set; } = false;
@@ -27,6 +30,8 @@ public abstract class Placeable : MonoBehaviour
     public bool IsPlaced { get; private set; } = false;
     public Vector2Int? CellPosition { get; private set; } = null;
 
+    private int health;
+
     // 0 is transparent, 1 is opaque
     public void SetAlpha(float a)
     {
@@ -35,13 +40,19 @@ public abstract class Placeable : MonoBehaviour
         spriteRenderer.color = color;
     }
 
+    public void Damage(int damage)
+    {
+        health -= damage;
+    }
+
     private void Awake()
     {
         grid = FindObjectOfType<PlaceableGrid>();
-        manager = FindObjectOfType<PlaceableManager>();
 
         defaultPosition = transform.position;
         dragBox.SetActive(false);
+
+        health = startingHealth;
 
         ProtectedAwake();
     }
@@ -69,7 +80,11 @@ public abstract class Placeable : MonoBehaviour
 
     private void Placed()
     {
-
+        if (health <= 0)
+        {
+            // TODO DIE STUFF HERE
+            Destroy(gameObject);
+        }
     }
 
     private void Unplaced()

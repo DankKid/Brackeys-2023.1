@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
+    [SerializeField] private int damage;
+    [SerializeField] private int startingHealth;
     [SerializeField] private float lurchConstant;
     [SerializeField] private float walkConstant;
     [SerializeField] private float speed;
     [SerializeField] private float movementCooldown;
 
     private PlaceableGrid grid;
-    private float timeUntilMovement = 0;
+    private int health;
+    private float offset;
+    private Placeable target = null;
+    private float attackingX = 0;
+    private float attackTime = 0;
+    private int hits = 0;
 
     // https://www.desmos.com/calculator/ixjzuo7i4g
 
@@ -25,33 +32,65 @@ public class Attacker : MonoBehaviour
         transform.position = position;
     }
 
+    public void Damage(int damage)
+    {
+        health -= damage;
+    }
+
     private void Awake()
     {
         grid = FindObjectOfType<PlaceableGrid>();
 
-        SetPosition(10f, 1);
+        SetPosition(12f, 1);
+
+        health = startingHealth;
+        offset = Random.Range(1000f, 10000f);
     }
 
     private void Update()
     {
-        if (timeUntilMovement <= 0)
+        if (target == null)
         {
             Vector3 position = transform.position;
-            position.x -= Time.deltaTime * speed * (walkConstant + Mathf.Pow((transform.position.x + 1024f) % 1f, 1f / lurchConstant));
+            position.x -= Time.deltaTime * speed * (walkConstant + Mathf.Pow((transform.position.x + offset) % 1f, 1f / lurchConstant));
             transform.position = position;
+
+            attackingX = position.x;
+            attackTime = 0;
+            hits = 0;
+        }
+        else
+        {
+            // attack
+            attackTime += Time.deltaTime;
+            Vector3 position = transform.position;
+            float t = (-Mathf.Pow(2 * ((attackTime % 1f) - 0.5f), 4f)) + 1f;
+            position.x = Mathf.Lerp(attackingX, attackingX + 0.5f, t);
+            transform.position = position;
+
+            int expectedHits = (int)(attackTime + 1f);
+            if (expectedHits > hits)
+            {
+                hits++;
+                target.Damage(damage);
+            }
         }
 
-        timeUntilMovement -= Time.deltaTime;
+        if (health <= 0)
+        {
+            // TODO DIE PARTICLES HERE
+            Destroy(gameObject);
+        }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Placeable placeable = collision.gameObject.GetComponentInParent<Placeable>();
-        if (placeable == null)
+        if (placeable == null || !placeable.IsPlaced)
         {
             return;
         }
 
-        timeUntilMovement = movementCooldown;
+        target = placeable;
     }
 }
