@@ -81,6 +81,11 @@ public class Attacker : MonoBehaviour
             // TODO DIE PARTICLES HERE
             Destroy(gameObject);
         }
+
+        if (transform.position.x < 1f)
+        {
+            FindObjectOfType<PlayerManager>().NextPhase();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

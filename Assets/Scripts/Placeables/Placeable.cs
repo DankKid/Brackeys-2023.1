@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public abstract class Placeable : MonoBehaviour
 {
     public int damage;
 
+    [SerializeField] private int cost;
     [SerializeField] private int startingHealth;
 
     [SerializeField] private float normalScale;
@@ -20,6 +22,7 @@ public abstract class Placeable : MonoBehaviour
     [SerializeField] private bool isDragFromClickPointEnabled;
 
     private PlaceableGrid grid;
+    private PlayerManager playerManager;
 
     private Vector2 defaultPosition;
     protected bool IsDragging { get; private set; } = false;
@@ -31,6 +34,8 @@ public abstract class Placeable : MonoBehaviour
     public Vector2Int? CellPosition { get; private set; } = null;
 
     private int health;
+
+    private bool isHoveringAllowed = true;
 
     // 0 is transparent, 1 is opaque
     public void SetAlpha(float a)
@@ -48,6 +53,7 @@ public abstract class Placeable : MonoBehaviour
     private void Awake()
     {
         grid = FindObjectOfType<PlaceableGrid>();
+        playerManager = FindObjectOfType<PlayerManager>();
 
         defaultPosition = transform.position;
         dragBox.SetActive(false);
@@ -69,11 +75,23 @@ public abstract class Placeable : MonoBehaviour
             transform.localScale = Vector3.one * normalScale;
             Placed();
             PlacedUpdate();
+            SetAlpha(1f);
         }
         else
         {
             Unplaced();
             UnplacedUpdate();
+
+            if (playerManager.currentDollar >= cost)
+            {
+                SetAlpha(1f);
+                isHoveringAllowed = true;
+            }
+            else
+            {
+                SetAlpha(0.25f);
+                isHoveringAllowed = false;
+            }
         }
         ProtectedUpdate();
     }
@@ -121,6 +139,7 @@ public abstract class Placeable : MonoBehaviour
                     transform.position = (Vector3)cellCenter - colliderTransform.localPosition;
                     placementTime = Time.time;
                     OnPlace();
+                    playerManager.getMoney(-cost);
                 }
                 else
                 {
@@ -151,6 +170,11 @@ public abstract class Placeable : MonoBehaviour
 
     private bool IsHovering(Vector3 mousePositionWorld)
     {
+        if (!isHoveringAllowed)
+        {
+            return false;
+        }
+
         mousePositionWorld -= dragBox.transform.localPosition;
         float halfDragBoxX = dragBox.transform.localScale.x / 2f;
         float halfDragBoxY = dragBox.transform.localScale.y / 2f;

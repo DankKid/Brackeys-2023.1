@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class PlayerManager : MonoBehaviour
 
     public void NextPhase()
     {
+        FindObjectsOfType<Placeable>().ToList().ForEach(p => Destroy(p.gameObject));
+        FindObjectsOfType<Attacker>().ToList().ForEach(p => Destroy(p.gameObject));
+
         #region
         /*
         if(currentPhase < 2)
@@ -68,7 +72,7 @@ public class PlayerManager : MonoBehaviour
         #endregion
 
 
-        if(currentPhase == 0)
+        if (currentPhase == 0)
         {
             globalLight.color = zombieLight;
             p0Money = currentDollar;
