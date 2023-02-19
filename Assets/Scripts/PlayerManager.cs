@@ -35,13 +35,20 @@ public class PlayerManager : MonoBehaviour
         {
             currentDefenderSprites[i].sprite = plantDefenderSprites[i];
         }
+        getMoney(0);
     }
 
 
 
     public void NextPhase()
     {
-        FindObjectsOfType<Placeable>().ToList().ForEach(p => Destroy(p.gameObject));
+        FindObjectsOfType<Placeable>().ToList().ForEach(p =>
+        {
+            if (p.IsPlaced)
+            {
+                Destroy(p.gameObject);
+            }
+        });
         FindObjectsOfType<Attacker>().ToList().ForEach(p => Destroy(p.gameObject));
         FindObjectsOfType<Currency>().ToList().ForEach(p => Destroy(p.gameObject));
 
@@ -78,6 +85,7 @@ public class PlayerManager : MonoBehaviour
             globalLight.color = zombieLight;
             p0Money = currentDollar;
             currentDollar = 0;
+            getMoney(0);
             currentPhase++;
             currentCurrency.sprite = currencies[1];
         }
@@ -85,6 +93,7 @@ public class PlayerManager : MonoBehaviour
         {
             p1Money = currentDollar;
             currentDollar = 0;
+            getMoney(0);
             gameOver();
             
         }
