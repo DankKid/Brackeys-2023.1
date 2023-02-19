@@ -105,8 +105,8 @@ public class Attacker : MonoBehaviour
 
         }else if (collision.gameObject.CompareTag("Explode"))
         {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            placeable.Damage(100000);
+            Damage(100000);
         }
 
 
