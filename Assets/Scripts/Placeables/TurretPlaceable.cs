@@ -10,8 +10,16 @@ public class TurretPlaceable : Placeable
 
     [SerializeField] private Vector2 wiggleRange;
     [SerializeField] private float wiggleFrequency;
-
+    [SerializeField] AudioSource audioSource;
+    SoundManager soundMan;
     private int projectilesShot = 0;
+
+    protected override void ProtectedStart()
+    {
+        base.ProtectedStart();
+        soundMan = FindObjectOfType<SoundManager>();
+    }
+
 
     protected override void PlacedUpdate()
     {
@@ -22,8 +30,10 @@ public class TurretPlaceable : Placeable
         if (expectedProjectilesShot > projectilesShot)
         {
             Projectile projectile = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectilePrefab.transform.rotation, projectilesTransform);
+            soundMan.PlayShoot(audioSource);
             projectile.SetInstantiator(this);
             projectilesShot++;
+            
         }
     }
 }
