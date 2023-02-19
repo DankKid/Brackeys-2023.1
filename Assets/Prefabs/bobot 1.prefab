@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 14393
-  startingHealth: 20
+  startingHealth: 1
   lurchConstant: 3
   walkConstant: 1
   speed: 0.33

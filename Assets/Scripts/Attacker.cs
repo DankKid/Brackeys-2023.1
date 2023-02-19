@@ -62,6 +62,8 @@ public class Attacker : MonoBehaviour
             Vector3 position = transform.position;
             position.x = Mathf.Lerp(slipEndpoint, slipEndpoint - 5f, Mathf.Pow(slipTime, 2f));
             transform.position = position;
+
+            transform.localEulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
@@ -95,6 +97,9 @@ public class Attacker : MonoBehaviour
                 position.x -= Time.deltaTime * speed * (walkConstant + Mathf.Pow((transform.position.x + offset) % 1f, 1f / lurchConstant));
                 transform.position = position;
 
+                float zRotation = Mathf.LerpAngle(-5, 5, (Mathf.Sin(Time.time * Mathf.PI * 2f) + 1f) / 2f);
+                transform.localEulerAngles = new Vector3(0, 0, zRotation);
+
                 attackingX = position.x;
                 attackTime = 0;
                 hits = 0;
@@ -107,6 +112,8 @@ public class Attacker : MonoBehaviour
                 float t = (-Mathf.Pow(2 * ((attackTime % 1f) - 0.5f), 4f)) + 1f;
                 position.x = Mathf.Lerp(attackingX, attackingX + 0.5f, t);
                 transform.position = position;
+
+                transform.localEulerAngles = new Vector3(0, 0, 0);
 
                 int expectedHits = (int)(attackTime + 1f);
                 if (expectedHits > hits)
@@ -152,6 +159,10 @@ public class Attacker : MonoBehaviour
         {
             placeable.Damage(100000);
             Damage(100000);
+        }
+        else
+        {
+            Damage(placeable.damage);
         }
 
 
