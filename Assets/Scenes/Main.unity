@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 317490611}
   m_Layer: 7
   m_Name: Projectile Spawn
-  m_TagString: Untagged
+  m_TagString: Slip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 452591406}
   - component: {fileID: 452591408}
   - component: {fileID: 452591409}
+  - component: {fileID: 452591410}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -883,6 +884,34 @@ MonoBehaviour:
   - {fileID: 1769415583435175848, guid: 5e8e4a631586ab440a76b3c3c6d23272, type: 3}
   robots: []
   wave: 0
+--- !u!114 &452591410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452591402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b044d5bd3a92c864397a243f97f1ba4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieGrunt:
+  - {fileID: 8300000, guid: 371710cbdeeb4c44bb5c7948eb98e30d, type: 3}
+  - {fileID: 8300000, guid: 2a61d36815009dc48b34aef547a0fd99, type: 3}
+  - {fileID: 8300000, guid: 677dc57715084264687f3f503e7ecf77, type: 3}
+  - {fileID: 8300000, guid: 3662a186f2373d64389181c543c4e2d0, type: 3}
+  - {fileID: 8300000, guid: 9a6dd98b469338844acd2d05ff8f0b79, type: 3}
+  zombieGloat:
+  - {fileID: 8300000, guid: 05a3dad8412084940b056cc6b76c27e5, type: 3}
+  - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
+  - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
+  - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
+  shoot: {fileID: 8300000, guid: 183efa8fbf0b8184a9ad2242c4870fd1, type: 3}
+  hit: {fileID: 8300000, guid: f1c16c583952e0042aaad7197a849fe8, type: 3}
+  place: {fileID: 8300000, guid: a29eb21d019b9ec4b84f8f51301b6dff, type: 3}
+  failPlace: {fileID: 8300000, guid: 866111a3d3f4f9447a19c0734bee14a5, type: 3}
+  select: {fileID: 8300000, guid: 2734b47a0e9599d4b89322a58fe069cb, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1390,7 @@ GameObject:
   - component: {fileID: 750975207}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Explode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2178,7 +2207,7 @@ GameObject:
   - component: {fileID: 1145008804}
   m_Layer: 7
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Slip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3040,7 +3069,7 @@ GameObject:
   - component: {fileID: 1455429823}
   m_Layer: 7
   m_Name: Drag Box
-  m_TagString: Untagged
+  m_TagString: Explode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3338,7 +3367,7 @@ GameObject:
   - component: {fileID: 1509670001}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Slip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3569,7 +3598,7 @@ GameObject:
   - component: {fileID: 1580425376}
   m_Layer: 7
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Explode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4521,7 +4550,7 @@ GameObject:
   - component: {fileID: 1949426369}
   m_Layer: 7
   m_Name: Projectile Spawn
-  m_TagString: Untagged
+  m_TagString: Explode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5025,7 +5054,7 @@ GameObject:
   - component: {fileID: 2130820882}
   m_Layer: 7
   m_Name: Drag Box
-  m_TagString: Untagged
+  m_TagString: Slip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
