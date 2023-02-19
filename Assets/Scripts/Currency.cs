@@ -10,6 +10,7 @@ public class Currency : MonoBehaviour
     [SerializeField] private float rotationSpeedDegreesPerSecond;
     [SerializeField] private float movementDistance;
     [SerializeField] private GameObject clickCircle;
+    PlayerManager pMan;
 
     private float timeSinceInstantiation = 0;
     private float rotationDirection;
@@ -17,9 +18,10 @@ public class Currency : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
     private float clickRadius;
-
+    
     private void Awake()
     {
+        pMan = GameObject.Find("Scripts").GetComponent<PlayerManager>();
         bool isReversed = Random.value > 0.5f;
         rotationDirection = isReversed ? -1f : 1f;
 
@@ -55,6 +57,7 @@ public class Currency : MonoBehaviour
         {
             // TODO Currency picked up code here
             // use "value" int possibly?
+            pMan.getMoney(value);
             Destroy(gameObject);
         }
     }

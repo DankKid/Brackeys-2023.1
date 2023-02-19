@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    int p1Money, p1Wave, p2Money, p2Wave, p3Money, p3Wave;
+    int p0Money, p0Wave, p1Money, p1Wave;
     public int currentPhase, currentDollar;
 
     [SerializeField] TMP_Text currentMoney, finalScore, bestScoreText;
@@ -22,14 +22,13 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    Color zombieLight = new Color(0,202,255,255);
-    Color machineLight = new Color(255,89,0,255);
-    Color defaultLight = new Color(255, 255, 255, 255);
+    Color zombieLight = new Color32(0,202,255,255);
+    Color defaultLight = new Color32(255, 255, 255, 255);
 
     private void Start()
     {
         currentDollar = 0;
-        currentPhase = 1;
+        currentPhase = 0;
 
         for (int i = 0; i < currentDefenderSprites.Count; i++)
         {
@@ -41,15 +40,20 @@ public class PlayerManager : MonoBehaviour
 
     public void NextPhase()
     {
-        if(currentPhase < 3)
+        #region
+        /*
+        if(currentPhase < 2)
         {
             currentCurrency.sprite = currencies[currentPhase - 1];
             currentMoney.text = "0";
             currentPhase++;
 
-            for(int i = 0; i < currentDefenderSprites.Count; i++)
+            if(currentPhase == 1)
             {
-                currentDefenderSprites[i].sprite = zombieDefenderSprites[i];
+                for (int i = 0; i < currentDefenderSprites.Count; i++)
+                {
+                    currentDefenderSprites[i].sprite = zombieDefenderSprites[i];
+                }
             }
 
 
@@ -57,26 +61,28 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            p3Money = currentDollar;
-            currentDollar = 0;
-            gameOver();
-        }
-
-
-        if(currentPhase == 2)
-        {
-            globalLight.color = zombieLight;
             p1Money = currentDollar;
             currentDollar = 0;
+            gameOver();
+        }*/
+        #endregion
 
-        }else if(currentPhase == 3)
+
+        if(currentPhase == 0)
         {
-            globalLight.color = machineLight;
-            p2Money = currentDollar;
+            globalLight.color = zombieLight;
+            p0Money = currentDollar;
             currentDollar = 0;
-
+            currentPhase++;
+            currentCurrency.sprite = currencies[1];
         }
-
+        else
+        {
+            p1Money = currentDollar;
+            currentDollar = 0;
+            gameOver();
+            
+        }
 
     }
 
@@ -99,13 +105,18 @@ public class PlayerManager : MonoBehaviour
         {
             getMoney(10);
         }
+
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            NextPhase();
+        }
     }
 
     void calculateScore()
     {
         float bestScore = PlayerPrefs.GetFloat("bestScore");
         float score;
-        score = (p1Money + p1Wave * 1000) + (p2Money + p2Wave * 1000) + (p3Money + p3Wave * 1000);
+        score = (p0Money + p0Wave * 1000) + (p1Money + p1Wave * 1000);
         finalScore.text = "Final Score: " + score;
         if(score > bestScore)
         {
