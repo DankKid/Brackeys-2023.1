@@ -20,6 +20,7 @@ public class PlaceableManager : MonoBehaviour
             unplaced.Add(placeable);
 
             Placeable placeablePrefab = Instantiate(placeable, placeable.transform.position, Quaternion.identity, placeablePrefabsTransform);
+            FindObjectOfType<PlayerManager>().currentDefenderSprites.Add(placeablePrefab.spriteRenderer);
             placeablePrefab.gameObject.SetActive(false);
             placeablePrefabs.Add(placeablePrefab);
         }
@@ -31,7 +32,7 @@ public class PlaceableManager : MonoBehaviour
 
         for (int i = 0; i < unplaced.Count; i++)
         {
-            if (unplaced[i].IsPlaced)
+            if (unplaced[i] == null || unplaced[i].IsPlaced)
             {
                 Placeable old = unplaced[i];
                 unplaced[i] = ClonePlaceablePrefab(placeablePrefabs[i]);

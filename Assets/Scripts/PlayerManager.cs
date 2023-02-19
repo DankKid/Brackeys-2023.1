@@ -17,8 +17,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] UnityEngine.Rendering.Universal.Light2D globalLight;
     [SerializeField] GameObject gameOverScreen;
 
-    [SerializeField] List<SpriteRenderer> currentDefenderSprites;
+    public List<SpriteRenderer> currentDefenderSprites;
     [SerializeField] List<Sprite> plantDefenderSprites, zombieDefenderSprites;
+
+    [SerializeField] public Currency bongROAJPS;
 
 
 
@@ -31,10 +33,6 @@ public class PlayerManager : MonoBehaviour
         currentDollar = 15;
         currentPhase = 0;
 
-        for (int i = 0; i < currentDefenderSprites.Count; i++)
-        {
-            currentDefenderSprites[i].sprite = plantDefenderSprites[i];
-        }
         getMoney(15);
     }
 
@@ -44,10 +42,7 @@ public class PlayerManager : MonoBehaviour
     {
         FindObjectsOfType<Placeable>().ToList().ForEach(p =>
         {
-            if (p.IsPlaced)
-            {
-                Destroy(p.gameObject);
-            }
+            Destroy(p.gameObject);
         });
         FindObjectsOfType<Attacker>().ToList().ForEach(p => Destroy(p.gameObject));
         FindObjectsOfType<Currency>().ToList().ForEach(p => Destroy(p.gameObject));

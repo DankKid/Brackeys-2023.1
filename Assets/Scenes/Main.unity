@@ -860,12 +860,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4e7911af0a83454a8588b22921efc6b, type: 3}
   globalLight: {fileID: 783532105}
   gameOverScreen: {fileID: 1808454147}
-  currentDefenderSprites:
-  - {fileID: 2142637093}
-  - {fileID: 216709008}
-  - {fileID: 1657961196}
-  - {fileID: 1145008804}
-  - {fileID: 1580425376}
+  currentDefenderSprites: []
   plantDefenderSprites:
   - {fileID: 21300000, guid: 435d0acd90be66a4c855261ac1962793, type: 3}
   - {fileID: 21300000, guid: 7abf510501d1382449ef89efae03fd3d, type: 3}
@@ -878,6 +873,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 488c2526af6211e4eb01b451d83338a7, type: 3}
   - {fileID: 21300000, guid: b5302450093bd234682ff5800017e0a7, type: 3}
   - {fileID: 21300000, guid: ba40492db0535aa48bb52640309fe42d, type: 3}
+  bongROAJPS: {fileID: 8471075670953273883, guid: 52276defee8b9ae488b5880fd593c9fd, type: 3}
 --- !u!114 &452591409
 MonoBehaviour:
   m_ObjectHideFlags: 0

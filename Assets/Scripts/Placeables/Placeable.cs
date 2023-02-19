@@ -17,7 +17,7 @@ public abstract class Placeable : MonoBehaviour
     [SerializeField] private Transform colliderTransform;
     [SerializeField] private GameObject dragBox;
     
-    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] public SpriteRenderer spriteRenderer;
 
     [SerializeField] private bool isDragFromClickPointEnabled;
 

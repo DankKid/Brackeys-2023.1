@@ -21,6 +21,11 @@ public class GeneratorPlaceable : Placeable
 
     protected override void PlacedUpdate()
     {
+        if (FindObjectOfType<PlayerManager>().currentPhase == 1)
+        {
+            currencyPrefab = FindObjectOfType<PlayerManager>().bongROAJPS;
+        }
+
         timeUntilGeneration -= Time.deltaTime;
 
         // Wiggle
