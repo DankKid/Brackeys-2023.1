@@ -4984,7 +4984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   cost: 25
-  startingHealth: 15
+  startingHealth: 25
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
