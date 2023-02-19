@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 0.5, y: 0.6}
-  size: {x: 10, y: 5}
+  size: {x: 9, y: 5}
   scale: {x: 1, y: 1.2}
 --- !u!114 &452591405
 MonoBehaviour:
@@ -1091,7 +1091,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.92
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1166,7 +1166,6 @@ GameObject:
   - component: {fileID: 602203542}
   - component: {fileID: 602203541}
   - component: {fileID: 602203540}
-  - component: {fileID: 602203539}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1174,20 +1173,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &602203539
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602203538}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &602203540
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1247,7 +1232,7 @@ Transform:
   m_GameObject: {fileID: 602203538}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 6, y: 5.43, z: 61.26}
-  m_LocalScale: {x: 1.75, y: 1, z: 1.06}
+  m_LocalScale: {x: 1.75, y: 1, z: 1.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1848,7 +1833,7 @@ MonoBehaviour:
   dragBox: {fileID: 2130820880}
   spriteRenderer: {fileID: 1145008804}
   isDragFromClickPointEnabled: 0
-  audioSource: {fileID: 0}
+  dsadasadssd: {fileID: 0}
 --- !u!1 &803529511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1980,7 @@ MonoBehaviour:
   dragBox: {fileID: 273270863}
   spriteRenderer: {fileID: 2142637093}
   isDragFromClickPointEnabled: 0
-  audioSource: {fileID: 0}
+  dsadasadssd: {fileID: 0}
   generationCooldown: 5
   currencySpawnTransform: {fileID: 1063239803}
   currenciesTransform: {fileID: 1621989728}
@@ -3335,7 +3320,7 @@ MonoBehaviour:
   dragBox: {fileID: 1455429821}
   spriteRenderer: {fileID: 1580425376}
   isDragFromClickPointEnabled: 0
-  audioSource: {fileID: 0}
+  dsadasadssd: {fileID: 0}
 --- !u!1 &1473510985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3361,7 @@ MonoBehaviour:
   dragBox: {fileID: 235936906}
   spriteRenderer: {fileID: 216709008}
   isDragFromClickPointEnabled: 0
-  audioSource: {fileID: 1473510990}
+  dsadasadssd: {fileID: 0}
   projectileSpawnTransform: {fileID: 1231187211}
   projectilesTransform: {fileID: 1096072707}
   projectilePrefab: {fileID: 4991132852113353650, guid: fac99768679ed854db0036132bb31c48, type: 3}
@@ -4635,7 +4620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1862593187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4678,7 +4663,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f165863247158b34f831ab570c7979af, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.44705883}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4864,7 +4849,7 @@ MonoBehaviour:
   dragBox: {fileID: 1724819995}
   spriteRenderer: {fileID: 1657961196}
   isDragFromClickPointEnabled: 0
-  audioSource: {fileID: 0}
+  dsadasadssd: {fileID: 0}
 --- !u!1 &2000269923
 GameObject:
   m_ObjectHideFlags: 0
