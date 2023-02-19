@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    [SerializeField] List<AudioClip> zombieGrunt, zombieGloat;
+    [SerializeField] List<AudioClip> zombieGrunt, zombieGloat, robotBeep;
 
     [SerializeField] AudioClip shoot, hit, place, failPlace, select, getHit;
 
@@ -20,6 +20,19 @@ public class SoundManager : MonoBehaviour
         source.clip = clip;
         source.Play();
     }
+
+    public void PlayRobotBeep(AudioSource source)
+    {
+        AudioClip clip;
+
+        int index = Random.Range(0, robotBeep.Count - 1);
+        clip = robotBeep[index];
+        float pitch = Random.Range(-3, 3);
+        source.pitch = pitch;
+        source.clip = clip;
+        source.Play();
+    }
+
 
     public void PlayZombieGloat(AudioSource source)
     {

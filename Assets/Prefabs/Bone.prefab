@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d272483d8b632bc449991189c67da165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 10
+  value: 4
   spriteRenderer: {fileID: 8471075670953273885}
   timeToFadeIn: 1
   rotationSpeedDegreesPerSecond: 180

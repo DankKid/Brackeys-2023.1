@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8257797386128121886}
   m_Layer: 0
   m_Name: bobot 1
-  m_TagString: Zombie
+  m_TagString: Robot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.39, y: 3.01}
+    oldSize: {x: 1.13, y: 1.0033333}
     newSize: {x: 0.47083333, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -920,12 +920,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
   - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
   - {fileID: 8300000, guid: b5fc0f4f7624fe64583de0572b6a1f5b, type: 3}
+  robotBeep:
+  - {fileID: 8300000, guid: a552aa74b1034644c9adabdea5b62cc2, type: 3}
+  - {fileID: 8300000, guid: 39bbcb41c08871e42bc83b1dc1bec4ee, type: 3}
+  - {fileID: 8300000, guid: 8e5fd90b40249c2409d1217b5b4cf1e0, type: 3}
+  - {fileID: 8300000, guid: 6e80e1c8375da2e42986dae12cc83be3, type: 3}
+  - {fileID: 8300000, guid: 6b6eb6211b747f449b505eff9f0f2b61, type: 3}
   shoot: {fileID: 8300000, guid: 183efa8fbf0b8184a9ad2242c4870fd1, type: 3}
   hit: {fileID: 8300000, guid: f1c16c583952e0042aaad7197a849fe8, type: 3}
   place: {fileID: 8300000, guid: a29eb21d019b9ec4b84f8f51301b6dff, type: 3}
   failPlace: {fileID: 8300000, guid: 866111a3d3f4f9447a19c0734bee14a5, type: 3}
   select: {fileID: 8300000, guid: 2734b47a0e9599d4b89322a58fe069cb, type: 3}
-  getHit: {fileID: 0}
+  getHit: {fileID: 8300000, guid: 89f950b6e6760de45b9483c6048d1e58, type: 3}
 --- !u!82 &452591411
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1824,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cost: 30
+  cost: 35
   startingHealth: 1
   normalScale: 1
   hoverScale: 1.1
@@ -3311,7 +3317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cost: 40
+  cost: 50
   startingHealth: 10
   normalScale: 1
   hoverScale: 1.1
@@ -3351,8 +3357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f49cbbef3809546b684a21e568f162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  cost: 10
+  damage: 3
+  cost: 15
   startingHealth: 10
   normalScale: 1
   hoverScale: 1.1
@@ -4840,7 +4846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cost: 20
+  cost: 25
   startingHealth: 15
   normalScale: 1
   hoverScale: 1.1
