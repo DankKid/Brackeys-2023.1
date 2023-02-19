@@ -42,13 +42,7 @@ public class PlayerManager : MonoBehaviour
 
     public void NextPhase()
     {
-        FindObjectsOfType<Placeable>().ToList().ForEach(p =>
-        {
-            if (p.IsPlaced)
-            {
-                Destroy(p.gameObject);
-            }
-        });
+        FindObjectsOfType<Placeable>().ToList().ForEach(p => Destroy(p.gameObject));
         FindObjectsOfType<Attacker>().ToList().ForEach(p => Destroy(p.gameObject));
         FindObjectsOfType<Currency>().ToList().ForEach(p => Destroy(p.gameObject));
 
@@ -88,6 +82,8 @@ public class PlayerManager : MonoBehaviour
             getMoney(0);
             currentPhase++;
             currentCurrency.sprite = currencies[1];
+            p0Wave = FindObjectOfType<WaveManager>().wave;
+            FindObjectOfType<WaveManager>().wave = 0;
         }
         else
         {
