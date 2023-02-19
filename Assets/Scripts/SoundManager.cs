@@ -36,6 +36,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayShoot(AudioSource source)
     {
+        print("Shoot");
         source.clip = shoot; 
         source.pitch = Random.Range(-1, 2);
         source.Play();
