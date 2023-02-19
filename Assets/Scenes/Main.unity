@@ -891,7 +891,10 @@ MonoBehaviour:
   spawnTimePerAttacker: 0.15
   zombies:
   - {fileID: 1769415583435175848, guid: 5e8e4a631586ab440a76b3c3c6d23272, type: 3}
-  robots: []
+  - {fileID: 1769415583435175848, guid: 9b249c6972313834d9cae5e42021a3ae, type: 3}
+  robots:
+  - {fileID: 1769415583435175848, guid: ed49aaf05aee59144862269387ad05c4, type: 3}
+  - {fileID: 1769415583435175848, guid: fbcfe938e82244a408255d407f73cbdc, type: 3}
   wave: 0
 --- !u!114 &452591410
 MonoBehaviour:
