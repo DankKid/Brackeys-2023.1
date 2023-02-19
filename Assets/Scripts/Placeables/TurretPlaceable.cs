@@ -17,6 +17,11 @@ public class TurretPlaceable : Placeable
 
     protected override void PlacedUpdate()
     {
+        if (FindObjectOfType<PlayerManager>().currentPhase == 1)
+        {
+            projectilePrefab = FindObjectOfType<PlayerManager>().dadasads12dsa;
+        }
+
         float zRotation = Mathf.LerpAngle(wiggleRange.x, wiggleRange.y, (Mathf.Sin(TimeSincePlacement * wiggleFrequency * Mathf.PI * 2f) + 1f) / 2f);
         spriteRenderer.transform.localEulerAngles = new Vector3(0, 0, zRotation);
 

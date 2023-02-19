@@ -874,6 +874,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b5302450093bd234682ff5800017e0a7, type: 3}
   - {fileID: 21300000, guid: ba40492db0535aa48bb52640309fe42d, type: 3}
   bongROAJPS: {fileID: 8471075670953273883, guid: 52276defee8b9ae488b5880fd593c9fd, type: 3}
+  dadasads12dsa: {fileID: 8868085474956944956, guid: 4653450623f2f584dafec2595e18b2ae, type: 3}
 --- !u!114 &452591409
 MonoBehaviour:
   m_ObjectHideFlags: 0

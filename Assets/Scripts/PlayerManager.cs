@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<Sprite> plantDefenderSprites, zombieDefenderSprites;
 
     [SerializeField] public Currency bongROAJPS;
+    [SerializeField] public Projectile dadasads12dsa;
 
 
 

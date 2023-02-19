@@ -18,6 +18,6 @@ public class ParticlesManager : MonoBehaviour
     }
     public void PlayShoot(Vector2 pos)
     {
-        Instantiate(c, pos, Quaternion.identity);
+        // Instantiate(c, pos, Quaternion.identity);
     }
 }
