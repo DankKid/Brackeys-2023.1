@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
         currentDollar = 15;
         currentPhase = 0;
 
-        getMoney(15);
+        getMoney(20);
     }
 
 
@@ -80,7 +80,7 @@ public class PlayerManager : MonoBehaviour
         {
             globalLight.color = zombieLight;
             p0Money = currentDollar;
-            currentDollar = 15;
+            currentDollar = 35;
             getMoney(0);
             currentPhase++;
             currentCurrency.sprite = currencies[1];
