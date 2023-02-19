@@ -1551,7 +1551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  startingHealth: 0
+  cost: 0
+  startingHealth: 5
   normalScale: 1
   hoverScale: 1.1
   draggingScale: 1
@@ -1559,7 +1560,7 @@ MonoBehaviour:
   dragBox: {fileID: 273270863}
   spriteRenderer: {fileID: 2142637093}
   isDragFromClickPointEnabled: 0
-  generationCooldown: 20
+  generationCooldown: 5
   currencySpawnTransform: {fileID: 1063239803}
   currenciesTransform: {fileID: 1621989728}
   currencyPrefab: {fileID: 8471075670953273883, guid: a1a458a7c7961fe4484b6a19e6d81ae9, type: 3}
@@ -2684,6 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  cost: 10
   startingHealth: 10
   normalScale: 1
   hoverScale: 1.1
@@ -3752,7 +3754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  startingHealth: 1988
+  startingHealth: 20
   lurchConstant: 3
   walkConstant: 0.25
   speed: 0.33

@@ -43,6 +43,7 @@ public class PlayerManager : MonoBehaviour
     {
         FindObjectsOfType<Placeable>().ToList().ForEach(p => Destroy(p.gameObject));
         FindObjectsOfType<Attacker>().ToList().ForEach(p => Destroy(p.gameObject));
+        FindObjectsOfType<Currency>().ToList().ForEach(p => Destroy(p.gameObject));
 
         #region
         /*

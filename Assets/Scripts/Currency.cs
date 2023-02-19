@@ -32,6 +32,8 @@ public class Currency : MonoBehaviour
         endPosition = startPosition + (movementVector * movementDistance);
 
         clickRadius = (clickCircle.transform.localScale.x + clickCircle.transform.localScale.y) / 4f;
+
+        clickCircle.SetActive(false);
     }
 
     private void Update()
